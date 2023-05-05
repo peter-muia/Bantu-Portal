@@ -1,0 +1,57 @@
+{
+  "name": "nordsoftware/yii2-account",
+  "description": "Account module for the Yii framework.",
+  "license": "BSD-3-Clause",
+  "keywords": ["yii-extension"],
+  "authors": [
+    {
+      "name": "Christoffer Niska",
+      "email": "christoffer.niska@nordsoftware.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.0",
+    "ircmaxell/random-lib": ">=v1.0",
+    "yiisoft/yii2": ">=2.0",
+    "yiisoft/yii2-authclient": ">=2.0",
+    "yiisoft/yii2-bootstrap": ">=2.0",
+    "guzzlehttp/guzzle": "^6.2",
+    "sparkpost/php-sparkpost": "^1.0"
+  },
+  "require-dev": {
+    "yiisoft/yii2-codeception": ">=2.0",
+    "yiisoft/yii2-debug": ">=2.0",
+    "yiisoft/yii2-gii": ">=2.0",
+    "yiisoft/yii2-faker": ">=2.0",
+    "codeclimate/php-test-reporter": "dev-master",
+    "codeception/codeception": "^2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "nord\\yii\\account\\": "src"
+    }
+  },
+  "scripts": {
+    "post-create-project-cmd": [
+      "yii\\composer\\Installer::postCreateProject"
+    ]
+  },
+  "extra": {
+    "yii\\composer\\Installer::postCreateProject": {
+      "setPermission": [
+        {
+          "tests/app/runtime": "0777",
+          "tests/app/web/assets": "0777",
+          "tests/app/yii": "0755"
+        }
+      ],
+      "generateCookieValidationKey": [
+        "tests/app/config/web.php"
+      ]
+    },
+    "asset-installer-paths": {
+      "npm-asset-library": "vendor/npm",
+      "bower-asset-library": "vendor/bower"
+    }
+  }
+}

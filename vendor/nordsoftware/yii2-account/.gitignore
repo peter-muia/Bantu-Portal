@@ -1,0 +1,9 @@
+.DS_Store
+.vagrant
+tests/app/config/env.php
+tests/app/runtime/*
+tests/app/web/assets/*
+tests/codeception.yml
+tests/codeception/acceptance.suite.yml
+tests/codeception/_output/*
+vendor
